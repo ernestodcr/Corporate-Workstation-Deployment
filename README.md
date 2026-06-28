@@ -26,3 +26,19 @@ Tras completar una instalación limpia del sistema operativo creando un usuario 
 * **Arquitectura del Driver:** VBoxWindowsAdditions-amd64 (Específico para sistemas de 64 bits).
 * **Equivalencia en Entornos Reales:** Este paso emula exactamente la instalación de los **Drivers o Controladores Oficiales del Fabricante** (Intel, AMD, HP, Lenovo) en un equipo físico. Permite la aceleración gráfica, la integración fluida del puntero del ratón y el escalado automático de la pantalla para adaptarla al monitor de trabajo sin distorsión.
 
+## 🌐 5. Fase 2: Diagnóstico de Red (APIPA frente a NAT)
+Durante las pruebas de conectividad iniciales en el entorno virtual por conexión inalámbrica (Wi-Fi), se detectó un fallo clásico de direccionamiento:
+
+* **Incidencia Detectada:** El comando `ipconfig` devolvía una dirección IP **169.254.149.23**.
+* **Análisis Técnico:** Se identificó como una dirección **APIPA** (Automatic Private IP Addressing). Esto ocurre cuando la máquina virtual no recibe respuesta del servidor DHCP (el router) debido a bloqueos de seguridad de la tarjeta Wi-Fi física del equipo anfitrión, dejando al sistema operativo aislado y sin internet.
+* **Solución Aplicada:** Se cambió el modo de red de Adaptador Puente a **NAT** (Network Address Translation). VirtualBox genera un router virtual intermedio que traduce las peticiones, asignando con éxito una IP corporativa válida (`10.0.2.15`) y garantizando la salida a internet de la estación de trabajo.
+* **Validación:** Se ejecutó con éxito el comando `ping google.com` registrando 0% de paquetes perdidos y una latencia óptima de respuesta.
+
+## 📂 6. Recursos Compartidos en Red y Seguridad
+Para resolver un ticket simulado del departamento de administración, se desplegó un espacio de almacenamiento compartido bajo estrictas políticas de acceso:
+
+* **Recurso Creado:** Carpeta de red local denominada `Compartida_Admin`.
+* **Configuración de Permisos:** Se accedió al menú de *Uso compartido avanzado* para restringir los accesos del grupo de red global (`Todos`).
+* **Seguridad Aplicada:** Se asignaron los permisos exclusivos de **Leer** y **Cambiar**, manteniendo desmarcada la opción de *Control Total*. 
+* **Justificación Profesional:** Esta configuración permite a los empleados trabajar, crear, modificar y guardar sus informes diarios con total normalidad, pero evita que usuarios sin privilegios de administración alteren los permisos de red del recurso o bloqueen accidentalmente al departamento de TI.
+
