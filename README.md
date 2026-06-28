@@ -42,3 +42,12 @@ Para resolver un ticket simulado del departamento de administración, se despleg
 * **Seguridad Aplicada:** Se asignaron los permisos exclusivos de **Leer** y **Cambiar**, manteniendo desmarcada la opción de *Control Total*. 
 * **Justificación Profesional:** Esta configuración permite a los empleados trabajar, crear, modificar y guardar sus informes diarios con total normalidad, pero evita que usuarios sin privilegios de administración alteren los permisos de red del recurso o bloqueen accidentalmente al departamento de TI.
 
+## 🔐 7. Fase 3: Gestión de Identidades y Auditoría de Seguridad (ID 4724)
+Se simuló un escenario real de soporte técnico de Nivel 1 ante la pérdida de credenciales de un empleado de la oficina, aplicando herramientas de administración avanzada y auditoría del sistema:
+
+* **Gestión de Usuarios Locales:** Mediante la consola avanzada de Microsoft `lusrmgr.msc`, se dio de alta una nueva cuenta local corporativa estándar denominada `empleado1`, configurando directivas de expiración seguras.
+* **Resolución del Incidente:** Ante la solicitud de restablecimiento de contraseña del usuario, se aplicó una sobreescritura forzada de credenciales mediante privilegios de administración local (`Soporte-IT`), solucionando el bloqueo de acceso de forma inmediata.
+* **Auditoría del Sistema (Visor de Eventos):** Para verificar la seguridad y mantener el control de accesos, se analizó el registro secreto de Windows a través de la consola `eventvwr.msc`.
+* **Identificación del Evento:** Se localizó con éxito el registro en la sección de *Seguridad* bajo el **ID de evento 4724** ("Se intentó restablecer la contraseña de una cuenta"). El análisis del evento permitió auditar con precisión quirúrgica el segundo exacto del cambio, la cuenta de origen (`Soporte-IT`) y la cuenta de destino afectada (`empleado1`).
+
+
