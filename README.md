@@ -50,4 +50,11 @@ Se simuló un escenario real de soporte técnico de Nivel 1 ante la pérdida de 
 * **Auditoría del Sistema (Visor de Eventos):** Para verificar la seguridad y mantener el control de accesos, se analizó el registro secreto de Windows a través de la consola `eventvwr.msc`.
 * **Identificación del Evento:** Se localizó con éxito el registro en la sección de *Seguridad* bajo el **ID de evento 4724** ("Se intentó restablecer la contraseña de una cuenta"). El análisis del evento permitió auditar con precisión quirúrgica el segundo exacto del cambio, la cuenta de origen (`Soporte-IT`) y la cuenta de destino afectada (`empleado1`).
 
+## 🔒 8. Gestión de Bajas y Suspensión de Cuentas de Usuario
+Se resolvió un ticket urgente del departamento de Recursos Humanos ante la baja laboral de un trabajador, aplicando políticas de retención de datos y seguridad perimetral:
+
+* **Incidencia Reales de Oficina:** Necesidad de revocar el acceso inmediato al sistema a un empleado (`empleado1`) garantizando la confidencialidad de la empresa, pero sin destruir sus perfiles ni informes locales para futuras auditorías.
+* **Acción Técnica Aplicada:** Se denegó la opción de "Eliminar cuenta" (lo que causaría pérdida irreversible de datos) y se procedió a marcar la directiva **"La cuenta está deshabilitada"** desde la consola `lusrmgr.msc`.
+* **Resultado e Impacto Profesional:** El sistema operativo Windows oculta y congela el inicio de sesión del usuario de forma inmediata, bloqueando cualquier intento de acceso físico o remoto. Sin embargo, toda la estructura de carpetas, informes y documentos locales del empleado permanecen intactas y legibles en el almacenamiento virtual para el departamento de TI y los auditores.
+
 
