@@ -36,9 +36,13 @@ Durante las pruebas de conectividad iniciales en el entorno virtual por conexió
 
 ## 📂 6. Recursos Compartidos en Red y Seguridad
 Para resolver un ticket simulado del departamento de administración, se desplegó un espacio de almacenamiento compartido bajo estrictas políticas de acceso:
+<div align="center">
+  <img width="358" height="319" alt="Captura de pantalla 2026-06-28 171615"     src="https://github.com/user-attachments/assets/6b7aeefd-5a56-4e6a-a976-f65860ac5637" />
+</div
 
 * **Recurso Creado:** Carpeta de red local denominada `Compartida_Admin`.
 * **Configuración de Permisos:** Se accedió al menú de *Uso compartido avanzado* para restringir los accesos del grupo de red global (`Todos`).
+
 * **Seguridad Aplicada:** Se asignaron los permisos exclusivos de **Leer** y **Cambiar**, manteniendo desmarcada la opción de *Control Total*. 
 * **Justificación Profesional:** Esta configuración permite a los empleados trabajar, crear, modificar y guardar sus informes diarios con total normalidad, pero evita que usuarios sin privilegios de administración alteren los permisos de red del recurso o bloqueen accidentalmente al departamento de TI.
 
