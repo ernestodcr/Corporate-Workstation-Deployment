@@ -61,4 +61,13 @@ Se resolvió un ticket urgente del departamento de Recursos Humanos ante la baja
 * **Acción Técnica Aplicada:** Se denegó la opción de "Eliminar cuenta" (lo que causaría pérdida irreversible de datos) y se procedió a marcar la directiva **"La cuenta está deshabilitada"** desde la consola `lusrmgr.msc`.
 * **Resultado e Impacto Profesional:** El sistema operativo Windows oculta y congela el inicio de sesión del usuario de forma inmediata, bloqueando cualquier intento de acceso físico o remoto. Sin embargo, toda la estructura de carpetas, informes y documentos locales del empleado permanecen intactas y legibles en el almacenamiento virtual para el departamento de TI y los auditores.
 
+## 💾 9. Fase 4: Ampliación de Almacenamiento e Infraestructura de Datos
+Se resolvió un ticket del departamento de administración para ampliar el almacenamiento local de la estación de trabajo y blindar la seguridad de la información corporativa:
+
+* **Arquitectura de Discos:** Se procedió al montaje virtualizado de una segunda unidad de almacenamiento dinámico de **20 GB** en formato VDI conectada al puerto SATA, aplicando el principio empresarial de **separación del Sistema Operativo (`C:`) y los datos críticos (`E:`)**.
+* **Inicialización Avanzada:** Desde la consola `diskmgmt.msc` (Administración de discos), se inicializó el nuevo hardware bajo el estilo de partición moderno **GPT (Tabla de particiones GUID)** para garantizar la resiliencia del sistema.
+* **Formateo y Estándar de Empresa:** Se generó un *Nuevo volumen simple* asignando la letra de unidad `E:` y aplicando el sistema de archivos **NTFS** bajo la etiqueta `DATOS_EMPRESA`.
+* **Justificación Teórica:** La selección de NTFS es obligatoria en entornos de producción para permitir la gestión de permisos de seguridad de archivos y encriptación. La separación de unidades garantiza que, ante una infección por malware o corrupción crítica del sistema en el disco principal, el volumen de datos permanezca completamente aislado, intacto y disponible para su recuperación inmediata.
+
+
 
