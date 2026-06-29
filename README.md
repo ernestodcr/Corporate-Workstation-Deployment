@@ -88,6 +88,15 @@ Para dar solución a un requerimiento de continuidad de negocio del departamento
 <img width="675" height="511" alt="Captura de pantalla 2026-06-29 163924" src="https://github.com/user-attachments/assets/96cc745a-090f-4a66-9352-0bba88e35a02" />
 </div>
 
+## 🚨 11. Fase 6: Plan de Contingencia y Recuperación ante Desastres (Disaster Recovery)
+Se ejecutó un simulacro de emergencia crítico para validar la resiliencia de la infraestructura y auditar la efectividad de los puntos de restauración del sistema ante un escenario de ciberataque o corrupción masiva:
+
+* **Simulación del Incidente:** Mediante una consola de comandos con privilegios elevados de Administrador, se forzó la destrucción del mapa de carga del sistema operativo aplicando la directiva avanzada `bcdedit /delete {current} /f`.
+* **Impacto en el Sistema:** Al reiniciar la estación de trabajo, el sistema operativo quedó completamente inoperativo, registrando un fallo catastrófico de bucle de arranque reflejado en la pantalla azul de recuperación con el **Código de error: 0xc0000098** (Ausencia o corrupción del archivo físico `\Boot\BCD`).
+* **Protocolo de Rescate Aplicado:** Ante la indisponibilidad del puesto, se activó el Plan de Contingencia deteniendo el hardware virtual y aplicando una reversión forzada hacia la instantánea estable `Fase5_Disco_Secundario_y_Backup_Robocopy_OK`.
+* **Resultado Final:** El entorno virtualizado reescribió los bloques de almacenamiento en un milisegundo, restaurando por completo la operatividad del sistema operativo principal (`C:`), manteniendo el volumen independiente (`E:`) intacto y recuperando el 100% de la disponibilidad de la estación de trabajo sin pérdida de datos corporativos.
+
+
 
 
 
