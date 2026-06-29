@@ -70,4 +70,24 @@ Se resolvió un ticket del departamento de administración para ampliar el almac
 * **Justificación Teórica:** La selección de NTFS es obligatoria en entornos de producción para permitir la gestión de permisos de seguridad de archivos y encriptación. La separación de unidades garantiza que, ante una infección por malware o corrupción crítica del sistema en el disco principal, el volumen de datos permanezca completamente aislado, intacto y disponible para su recuperación inmediata.
 
 
+## 🤖 10. Fase 5: Automatización y Políticas de Copias de Seguridad (Backup)
+Para dar solución a un requerimiento de continuidad de negocio del departamento de administración, se diseñó e implementó un sistema de respaldo automatizado local mediante scripting:
+
+* **Despliegue del Script:** Se programó un archivo ejecutable por lotes (`copiador.bat`) ubicado estratégicamente en el escritorio del usuario para facilitar su ejecución diaria.
+* **Tecnología Utilizada:** Se descartó el comando genérico `copy` y se implementó el motor profesional **`robocopy`** (Robust File Copy) de Windows para habilitar copias de seguridad de tipo incremental.
+* **Estructura del Código:**
+  ```batch
+  @echo off
+  echo Realizando copia de seguridad de los informes de contabilidad...
+  robocopy "E:\Informes_Contabilidad" "E:\COPIA_SEGURIDAD" /E /R:3 /W:5
+  pause
+  ```
+* **Justificación de los Parámetros:** El uso de `/E` asegura la clonación de todo el árbol de subdirectorios. Los modificadores `/R:3` y `/W:5` establecen una política de tolerancia a fallos, forzando 3 reintentos separados por 5 segundos en caso de detectar archivos bloqueados temporalmente por el sistema. El comportamiento incremental de `robocopy` optimiza el uso de disco y los tiempos de procesamiento al omitir los archivos idénticos y transferir exclusivamente las modificaciones o archivos nuevos.
+
+<div align="center">
+<img width="675" height="511" alt="Captura de pantalla 2026-06-29 163924" src="https://github.com/user-attachments/assets/96cc745a-090f-4a66-9352-0bba88e35a02" />
+</div>
+
+
+
 
